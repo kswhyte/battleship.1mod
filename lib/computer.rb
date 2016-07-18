@@ -2,7 +2,9 @@ require './lib/game_grid'
 
 class Computer
 
-
+  def initialize
+    hits_misses
+  end
 
     def place_destroyer_ship_randomly
     end

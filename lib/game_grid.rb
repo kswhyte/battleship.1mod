@@ -1,38 +1,84 @@
 class GameGrid
 
-  def initialize
+  # def initialize
+  # end
 
-    cell_values  = { "A1"=>"empty",
-                    "A2"=>"empty",
-                    "A3"=>"empty",
-                    "A4"=>"empty",
-
-                    "B1"=>"empty",
-                    "B2"=>"empty",
-                    "B3"=>"empty",
-                    "B4"=>"empty",
-
-                    "C1"=>"empty",
-                    "C2"=>"empty",
-                    "C3"=>"empty",
-                    "C4"=>"empty",
-
-                    "D1"=>"empty",
-                    "D2"=>"empty",
-                    "D3"=>"empty",
-                    "D4"=>"empty" }
-
-    game_board = [["A1", "A2", "A3", "A4", ]]
+  def header_footer
+    ["-------------"]
   end
 
+  def create_row(label)
+    ["|", label, " ", " ", " ", " ", "|"]
+  end
 
+  def generate_grid
+    [header_footer,
+    ["|", " ", "1", "2", "3", "4", "|"],
+    create_row("A"),
+    create_row("B"),
+    create_row("C"),
+    create_row("D"),
+    header_footer]
+  end
+
+  def arrange_full_grid
+    generate_grid.each do |row|
+      row.each do |item|
+        print item + ' '
+      end
+      puts ''
+    end
+    puts "\n\n"
+  end
 end
 
 
 
 
-
-end
+#     @cell = { "A1"=>" ",
+#               "A2"=>" ",
+#               "A3"=>" ",
+#               "A4"=>" ",
+#
+#               "B1"=>" ",
+#               "B2"=>" ",
+#               "B3"=>" ",
+#               "B4"=>" ",
+#
+#               "C1"=>" ",
+#               "C2"=>" ",
+#               "C3"=>" ",
+#               "C4"=>" ",
+#
+#               "D1"=>" ",
+#               "D2"=>" ",
+#               "D3"=>" ",
+#               "D4"=>" " }
+#   end
+#
+#   def game_board
+#     @cell.keys
+#   end
+#
+#   def create_rows_columns
+#     game_board.map do |coordinate|
+#       @column_rows = coordinate.chars
+#     end
+#   end
+#
+#   def create_columns
+#     @columns = create_rows_columns.map do |rc|
+#       # require "pry"; binding.pry
+#       rc[1]
+#     end.uniq
+#   end
+#
+#   def create_rows
+#     @rows = @cell.map do |key, value|
+#       [key[0], value]
+#     end
+#   end
+# end
 
 
 # require 'terminal-table'

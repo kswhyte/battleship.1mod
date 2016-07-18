@@ -1,8 +1,14 @@
 require './lib/message'
+require './lib/game_grid'
 
 class Game
   def boot_game
     print Message.welcome_message
+    give_prompt
+  end
+
+  def give_prompt
+    print Message.prompt
     @user_selection = gets.chomp
     game_start
   end
@@ -12,13 +18,13 @@ class Game
       pick_name
     elsif @user_selection == "i"
       print Message.game_rules
-      boot_game
+      give_prompt
     elsif @user_selection == "q"
       print Message.quit_game
       # require "pry"; binding.pry
     elsif @user_selection != "p" || "q" || "i"
       print Message.invalid_selection
-      boot_game
+      give_prompt
     end
   end
 
@@ -26,19 +32,25 @@ class Game
     print Message.pick_name
     user_name = gets.chomp.to_s
     puts "#{user_name.capitalize}, welcome to the mini witty war at sea!!!"
-    # display_grid
+    consider_coordinates
+  end
+
+  def consider_coordinates
+    print Message.ponder_coordinates
+    display_grid
   end
 
   def display_grid
     game_grid = GameGrid.new
-    game_grid.
-    # set_coordinates
+    puts game_grid.arrange_full_grid
+    set_coordinates
   end
 
   def set_coordinates
-    print Message.pick_coordinates
-    # display_grid
+    puts Message.place_ships
+    @user_selection = gets.chomp
   end
+
 
 
   # def place_ships
@@ -48,6 +60,17 @@ class Game
   # end
 end
 
+# def display_grid
+#   game_grid = GameGrid.new
+#   game_grid.create_columns.each do |column|
+#     print "  " + column
+#   end
+#   puts "\n"
+#   game_grid.create_rows.each do |row|
+#     puts row
+#   end
+#   # set_coordinates
+# end
 
 
 # include Gameplay
