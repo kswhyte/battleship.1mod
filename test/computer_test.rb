@@ -7,8 +7,12 @@ class ComputerTest < Minitest::Test
     @computer = Computer.new
     @first_vertical_key = @computer.randomize_vertical_key
     @first_horizontal_key = @computer.randomize_horizontal_key
+
     @second_vertical_key = @computer.generate_second_vertical_key(@first_vertical_key)
     @second_horizontal_key = @computer.generate_second_horizontal_key(@first_horizontal_key)
+
+    @third_vertical_key = @computer.generate_third_vertical_key(@second_vertical_key)
+    @third_horizontal_key = @computer.generate_third_horizontal_key(@second_horizontal_key)
   end
 
   def test_it_randomly_selects_first_vertical_ship_coordinate
@@ -56,27 +60,22 @@ class ComputerTest < Minitest::Test
     assert range.include?(third_horizontal_key)
   end
 
-  def test_it_outputs_ships_to_play_grid
+  def test_it_validates_first_coordinate
+     @computer.game_grid.cell.keys.include?(@computer.form_first_coordinate(@first_vertical_key, @first_horizontal_key))
+  end
 
+  def test_it_validates_second_coordinate
+    @computer.game_grid.cell.keys.include?(@computer.form_second_coordinate(@second_vertical_key, @second_horizontal_key))
+  end
 
+  def test_it_validates_third_coordinate
+    @computer.game_grid.cell.keys.include?(@computer.form_third_coordinate(@third_vertical_key, @third_horizontal_key))
+  end
 
-  # def test_it_returns_ship_coordinates_for_ship_size_of_two
-  #  @computer
-  #   computer.randomize_vertical_key
-  #   computer.randomize_horizontal_key
-  #   computer.generate_second_vertical_key
-  #   computer.generate_second_horizontal_key
-  #
-  #   assert_equal 2, computer.form_second_coordinate
-  # end
+  def test_it_creates_locations_for_a_destroyer
+    destroyer = @computer.create_destroyer
+      destroyer.map do |pos|
+        assert @computer.game_grid.cell.keys.include?(pos)
+      end
+  end
 end
-
-# assert_equal "A1", validator(coordinate_one)
-# refute what it is not equal
-#you have a coordinate A1.
-#i only can return a coordinate within one letter and one number of a spaces
-#my letter coordinate has to be B or A
-#if its a B, then our number coordinate has to be within
-#my number coordinate has to be a 2, and cannot repeat unless it is a B
-
-# if A1, it can be B1 or A2
