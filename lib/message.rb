@@ -1,5 +1,5 @@
 # require './lib/user'
-
+#module : message.welcome_message 
 class Message
 
   def self.welcome_message
@@ -11,7 +11,7 @@ class Message
   end
 
   def self.game_rules
-    "Battleship is a game in which each player attempts to sink the other's\nship. At the game's start, each player will place their ships with coordinates\n(i.e. A1 A2) on a grid (4x4). Each ship occupies a number of consecutive squares on\nthe grid arranged either horizontally or vertically, determined by the type of\nship: a Destroyer (occupies 2 spaces) or Battleship(occupies 3 spaces).\n\nAfter the ships have been positioned, the game proceeds in a series of rounds, in which\neach player choses a target square in the opponent's grid to shoot at. The opponent\nannounces whether or not the square is occupied by a ship, and if it is a 'miss'\nor 'hit', the grid will be marked accordingly to show picture of the opponent's\nfleet.\n\nWhen all of the squares of a ship have been hit, the ship is sunk, and\na message will be sent from the owner (e.g.'You sank my battleship!''). If all of\na player's ships have been sunk, the game is over and their opponent wins.\n\n"
+    "Battleship is a game in which each player attempts to sink the other's\nship. At the game's start, each player will place their ships with coordinates\n(i.e. A1 A2) on a grid (4x4). Each ship occupies a number of consecutive squares on\nthe grid arranged either horizontally or vertically, determined by the type of\nship: a Destroyer (occupies 2 spaces) or Battleship(occupies 3 spaces).\n\nAfter the ships have been positioned, the game proceeds in a series of rounds, in which\neach player choses a target square in the opponent's grid to shoot at. The opponent\nannounces whether or not the square is occupied by a ship, and if it is a 'miss'\nor 'hit', the grid will be marked accordingly to show picture of the opponent's\nfleet.\n\nWhen all of the squares of a ship have been hit, the ship is sunk, and\na message will be sent from the owner (e.g.'You sank my battleship!!!'). If all of\na player's ships have been sunk, the game is over and their opponent wins.\n\n"
   end
 
   def self.quit_game
@@ -30,9 +30,32 @@ class Message
     "I am BlackBeard. Can you begin to fathom the secret location of my battleships?\nSee the grid below to ponder upon setting your own hidden ship coordinates.\n\n\n"
   end
 
-  def self.place_ships
-    "Where would you like to place your ships? (i.e. A1 A2)\nThey may be placed horizontally or vertically."
+  def self.computer_places_ships
+    "I have laid out my ships secretively on this grid.\nYou now need to layout your two ships.\n"
   end
 
+  def self.place_destroyer
+    "Where would you like to place your first ship, the destroyer?\nThis ship occupies 2 spots, (i.e. A1 A2)\nIt may be placed horizontally or vertically."
+  end
+
+  def self.confirm_destroyer
+    "Your destroyer ship is set."
+  end
+
+  def self.place_battleship
+    "Where would you like to place your second ship, the battleship?\nThis ship occupies 3 spots, (i.e. A1 A2 A3)\nIt may be placed horizontally or vertically."
+  end
+
+  def self.confirm_battleship
+    "Your battleship is set. Let the battle begin!!!"
+  end
 
 end
+
+# I have laid out my ships on the grid.
+# You now need to layout your two ships.
+# The first is two units long and the
+# second is three units long.
+# The grid has A1 at the top left and D4 at the bottom right.
+#
+# Enter the squares for the two-unit ship:

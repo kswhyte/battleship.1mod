@@ -1,4 +1,6 @@
 source "http://rubygems.org"
 
 gem 'minitest'
-gem 'simplecov'
+gem 'pry'
+gem 'rake'
+gem 'simplecov', :require => false, :group => :test
