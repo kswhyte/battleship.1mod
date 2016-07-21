@@ -1,9 +1,7 @@
-# require './lib/user'
-#module : message.welcome_message 
 class Message
 
   def self.welcome_message
-    "Welcome to BATTLESHIP!!!\n"
+    "Welcome to BATTLESHIP!!!\n\n"
   end
 
   def self.prompt
@@ -31,31 +29,22 @@ class Message
   end
 
   def self.computer_places_ships
-    "I have laid out my ships secretively on this grid.\nYou now need to layout your two ships.\n"
+    "I have laid out my ships secretively on this grid.\nYou now need to layout your two ships.\n\n"
   end
 
-  def self.place_destroyer
-    "Where would you like to place your first ship, the destroyer?\nThis ship occupies 2 spots, (i.e. A1 A2)\nIt may be placed horizontally or vertically."
+  def self.user_place_destroyer
+    "Where would you like to place your first ship, the destroyer?\nThis ship occupies 2 spots, (i.e. A1 A2)\n\nIt may be placed horizontally or vertically."
   end
 
-  def self.confirm_destroyer
-    "Your destroyer ship is set."
+  def self.confirm_user_destroyer
+    "Your destroyer ship is set.\n\n"
   end
 
-  def self.place_battleship
-    "Where would you like to place your second ship, the battleship?\nThis ship occupies 3 spots, (i.e. A1 A2 A3)\nIt may be placed horizontally or vertically."
+  def self.place_user_battleship
+    "Where would you like to place your second ship, the battleship?\nThis ship occupies 3 spots, (i.e. A1 A2 A3)\n\nIt may be placed horizontally or vertically."
   end
 
-  def self.confirm_battleship
+  def self.confirm_user_battleship
     "Your battleship is set. Let the battle begin!!!"
   end
-
 end
-
-# I have laid out my ships on the grid.
-# You now need to layout your two ships.
-# The first is two units long and the
-# second is three units long.
-# The grid has A1 at the top left and D4 at the bottom right.
-#
-# Enter the squares for the two-unit ship:

@@ -1,13 +1,10 @@
-gem 'minitest', '~> 5.0'
-require './test/simplecov_test'
-require 'colorize'
-require 'colorized_string'
+require './test/test_helper'
 require './lib/message'
 
 class MessageTest < Minitest::Test
 
   def test_it_welcomes_the_user_to_the_game
-    assert_equal "Welcome to BATTLESHIP!!!\n", Message.welcome_message
+    assert_equal "Welcome to BATTLESHIP!!!\n\n", Message.welcome_message
   end
 
   def test_it_gives_the_user_a_prompt
@@ -35,26 +32,26 @@ class MessageTest < Minitest::Test
   end
 
   def test_it_confirms_computer_places_ships
-    assert_equal "I have laid out my ships on secretively on this grid.\nYou now need to layout your two ships.\n", Message.computer_places_ships
+    assert_equal "I have laid out my ships secretively on this grid.\nYou now need to layout your two ships.\n\n", Message.computer_places_ships
   end
 
   def test_it_asks_user_to_place_their_destroyer_ship
-    assert_equal "Where would you like to place your first ship, the destroyer?\nThis ship occupies 2 spots, (i.e. A1 A2)\nIt may be placed horizontally or vertically.", Message.place_destroyer
+    assert_equal "Where would you like to place your first ship, the destroyer?\nThis ship occupies 2 spots, (i.e. A1 A2)\n\nIt may be placed horizontally or vertically.", Message.user_place_destroyer
   end
 
   def test_it_confirms_destroyer_ship_is_set
-    assert_equal "Your destroyer ship is set.", Message.confirm_destroyer
+    assert_equal "Your destroyer ship is set.\n\n", Message.confirm_user_destroyer
   end
 
   def test_it_asks_user_to_place_ships
-    assert_equal "Where would you like to place your first ship, the destroyer?\nThis ship occupies 2 spots, (i.e. A1 A2)\nIt may be placed horizontally or vertically.", Message.place_destroyer
+    assert_equal "Where would you like to place your first ship, the destroyer?\nThis ship occupies 2 spots, (i.e. A1 A2)\n\nIt may be placed horizontally or vertically.", Message.user_place_destroyer
   end
 
   def test_it_asks_user_to_place_their_battleship
-    assert_equal "Where would you like to place your second ship, the battleship?\nThis ship occupies 3 spots, (i.e. A1 A2 A3)\nIt may be placed horizontally or vertically.", Message.place_battleship
+    assert_equal "Where would you like to place your second ship, the battleship?\nThis ship occupies 3 spots, (i.e. A1 A2 A3)\n\nIt may be placed horizontally or vertically.", Message.place_user_battleship
   end
 
   def test_it_confirms_battleship_is_set
-    assert_equal "Your battleship is set. Let the battle begin!!!", Message.confirm_battleship
+    assert_equal "Your battleship is set. Let the battle begin!!!", Message.confirm_user_battleship
   end
 end

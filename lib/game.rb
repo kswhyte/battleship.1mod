@@ -1,14 +1,11 @@
 require './lib/message'
 require './lib/game_grid'
-require './lib/computer'
 require './lib/user'
-# require './lib/play_grid'
 
 class Game
 
   def initialize
     @game_grid = GameGrid.new
-    @computer = Computer.new(@game_grid)
   end
 
   def boot_game
@@ -39,7 +36,7 @@ class Game
   def pick_name
     print Message.pick_name
     user_name = gets.chomp.to_s
-    puts "#{user_name.capitalize}, welcome to the mini witty war at sea!!!"
+    puts "#{user_name.capitalize}, welcome to the mini witty war at sea!!!\n\n"
     consider_coordinates
   end
 
@@ -50,71 +47,24 @@ class Game
 
   def display_grid
     puts @game_grid.arrange_full_grid
+    computer_placement_feedback
   end
 
+  def computer_placement_feedback
+    puts Message.computer_places_ships
+    place_user_destroyer
+  end
 
-  # @computer.place_destroyer
+  def place_user_destroyer
+    puts Message.user_place_destroyer
+    @user_destroyer_input = gets.chomp
+    puts Message.confirm_user_destroyer
+    place_user_battleship
+  end
 
-  #
-  #   computer.place_first_computer_ship
-  # end
-
-  # def computer_placement_feedback
-  #   puts Message.computer_places_ships
-  #   verify_first_ship
-  # end
-
-
+  def place_user_battleship
+    puts Message.place_user_battleship
+    @user_battleship_input = gets.chomp
+    puts Message.confirm_user_battleship
+  end
 end
-
-  def verify_first_ship
-    puts Message.confirm_destroyer
-    @user.user_place_battleship
-  end
-
-  def verify_second_ship
-    puts Message.confirm_battleship
-    xyz
-  end
-
-
-
-
-    # [5] pry(#<Game>)> @user_selection.split(" ")
-    # => ["A1", "A2"]
-    # [6] pry(#<Game>)> cell["A1", "A2"]
-    # ArgumentError: wrong number of arguments (given 2, expected 1)
-    # from (pry):6:in `[]'
-    # [7] pry(#<Game>)> cell["A1"]
-    # => " "
-    # [8] pry(#<Game>)> cell["A1"] = 1
-    # => 1
-    # [9] pry(#<Game>)> cell["A1"]
-    # => 1
-
-
-  #
-  # def place_ships
-  #   print Message.place_battleship
-  #   ships_placed = gets.chomp
-  #
-  # end
-
-
-
-# include Gameplay
-
-# attr_accessor :human,
-#               :computer
-#
-# def initialize
-#   @human = Player.new
-#   @computer = ComputerPlayer.new
-# end
-# def welcome_message(human_user, computer_user)
-
-
-  # computer_user.place_ship_randomly(3)
-  # computer_user.place_ship_randomly(2)
-  # PlayerInterface.main_menu(human_user)
-  # main_game

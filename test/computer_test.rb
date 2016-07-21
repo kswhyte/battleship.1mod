@@ -30,7 +30,6 @@ class ComputerTest < Minitest::Test
   end
 
   def test_it_generates_second_vertical_key
-
     range = ("A".."D")
     second_vertical_key = @computer.generate_second_vertical_key(@first_vertical_key)
 
@@ -38,7 +37,6 @@ class ComputerTest < Minitest::Test
   end
 
   def test_it_generates_second_horizontal_key
-
     range = ("1".."4")
     second_horizontal_key = @computer.generate_second_horizontal_key(@first_horizontal_key)
 
@@ -46,7 +44,6 @@ class ComputerTest < Minitest::Test
   end
   #
   def test_it_generates_third_vertical_key
-
     range = ("A".."D")
     third_vertical_key = @computer.generate_third_vertical_key(@second_vertical_key)
 
@@ -54,7 +51,6 @@ class ComputerTest < Minitest::Test
   end
 
   def test_it_generates_third_horizontal_key
-
     range = ("1".."4")
     third_horizontal_key = @computer.generate_third_horizontal_key(@second_horizontal_key)
     assert range.include?(third_horizontal_key)
@@ -75,6 +71,13 @@ class ComputerTest < Minitest::Test
   def test_it_creates_locations_for_a_destroyer
     destroyer = @computer.create_destroyer
       destroyer.map do |pos|
+        assert @computer.game_grid.cell.keys.include?(pos)
+      end
+  end
+
+  def test_it_creates_locations_for_a_battleship
+    battleship = @computer.create_battleship
+      battleship.map do |pos|
         assert @computer.game_grid.cell.keys.include?(pos)
       end
   end

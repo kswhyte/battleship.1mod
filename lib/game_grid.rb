@@ -1,10 +1,8 @@
 class GameGrid
 
   attr_reader :cell
-              # :user_selection
 
   def initialize
-    # @user_selection = ""
     @cell = { "A1"=>" ",
              "A2"=>" ",
              "A3"=>" ",
@@ -54,60 +52,3 @@ class GameGrid
     puts "\n\n"
   end
 end
-
-
-
-
-#
-#   end
-#
-#   def game_board
-#     @cell.keys
-#   end
-#
-#   def create_rows_columns
-#     game_board.map do |coordinate|
-#       @column_rows = coordinate.chars
-#     end
-#   end
-#
-#   def create_columns
-#     @columns = create_rows_columns.map do |rc|
-#       # require "pry"; binding.pry
-#       rc[1]
-#     end.uniq
-#   end
-#
-#   def create_rows
-#     @rows = @cell.map do |key, value|
-#       [key[0], value]
-#     end
-#   end
-# end
-
-
-# require 'terminal-table'
-#
-# class Grid
-#   rows = []
-#   rows << ['A1', 1]
-#   rows << ['A2', 2]
-#   rows << ['A3', 3]
-#   rows << ['A4', 4]
-#   rows << ['B1', 1]
-#   rows << ['B2', 2]
-#   rows << ['B3', 3]
-#   rows << ['B4', 4]
-#   rows << ['C1', 1]
-#   rows << ['C2', 2]
-#   rows << ['C3', 3]
-#   rows << ['C4', 4]
-#   rows << ['D1', 1]
-#   rows << ['D2', 2]
-#   rows << ['D3', 3]
-#   rows << ['D4', 4]
-# end
-#
-#   table = Terminal::Table.new :rows => rows
-#   table = Terminal::Table.new :title => "BATTLESHIP", :headings => ['Y', 'X'], :rows => rows
-#   table.align_column(1, :right)
